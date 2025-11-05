@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopi Nusantara Hub</title>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            background-color: #f7f3ef;
+            color: #3b2f2f;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Header */
+        .sticky-header {
+            background-color: #6f4e37; /* Warna kopi */
+            color: #fff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .sticky-header h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        .sticky-header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .sticky-header nav ul li {
+            margin-left: 20px;
+        }
+
+        .sticky-header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+        .sticky-header nav ul li a:hover {
+            color: #f2c17d;
+        }
+
+        /* Tombol Mode */
+        #mode-toggle {
+            background-color: #d4a373;
+            color: #3b2f2f;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-left: 20px;
+            transition: all 0.3s;
+        }
+
+        #mode-toggle:hover {
+            background-color: #e6be8a;
+        }
+
+        /* Image Header Section */
+        .image-header-section {
+            margin-bottom: 20px;
+            padding: 0 20px;
+        }
+
+        .image-header-placeholder {
+            background-color: #000;
+            height: 320px;
+            overflow: hidden;
+            border-bottom: 5px solid #6f4e37;
+        }
+
+        .header-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Content Columns */
+        .content-columns {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            padding: 0 20px;
+        }
+
+        .column {
+            flex: 1;
+            margin-right: 20px;
+            padding: 20px;
+            background-color: white;
+            border-top: 5px solid #6f4e37;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .column:hover {
+            transform: translateY(-3px);
+        }
+
+        .column:last-child {
+            margin-right: 0;
+        }
+
+        /* Text Section */
+        .another-text-section {
+            margin-bottom: 20px;
+            padding: 0 20px;
+        }
+
+        .another-text-placeholder {
+            background-color: white;
+            min-height: 250px;
+            padding: 30px;
+            border-left: 5px solid #6f4e37;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            color: #4a3c2a;
+        }
+
+        .another-text-placeholder h2 {
+            color: #6f4e37;
+            margin-top: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3b2f2f;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        /* DARK MODE */
+        .dark-mode {
+            background-color: #1f1a17;
+            color: #e0d6c2;
+        }
+
+        .dark-mode .sticky-header {
+            background-color: #2b211b;
+            box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+        }
+
+        .dark-mode .column,
+        .dark-mode .another-text-placeholder {
+            background-color: #2a2420;
+            color: #e0d6c2;
+            border-color: #b5854a;
+            box-shadow: 0 2px 5px rgba(255,255,255,0.05);
+        }
+
+        .dark-mode .another-text-placeholder h2 {
+            color: #d4a373;
+        }
+
+        .dark-mode footer {
+            background-color: #14100e;
+        }
+
+        .dark-mode #mode-toggle {
+            background-color: #b5854a;
+            color: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            .content-columns {
+                flex-direction: column;
+            }
+
+            .column {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="header-content">
+            <h1>Kopi Nusantara Hub</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Jenis Kopi</a></li>
+                    <li><a href="#">Sejarah</a></li>
+                    <li><a href="#">Kopi Lokal</a></li>
+                </ul>
+            </nav>
+            <button id="mode-toggle">☀ Mode Gelap</button>
+        </div>
+    </header>
+
+    <section class="image-header-section">
+        <div class="image-header-placeholder">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Gambar Kopi" class="header-image">
+        </div>
+    </section>
+
+    <main>
+        <section class="content-columns">
+            <div class="column">
+                <h3>Asal dan Filosofi Kopi</h3>
+                <p>Kopi bukan sekadar minuman, tapi bagian dari budaya yang menghubungkan manusia. Dari biji kecil yang ditanam di dataran tinggi Nusantara, lahir rasa dan aroma yang menenangkan setiap penikmatnya.</p>
+                <p>Setiap tegukan adalah cerita tentang tanah, petani, dan proses panjang yang menghasilkan kenikmatan tiada duanya.</p>
+            </div>
+            <div class="column">
+                <h3>Jenis Kopi Populer di Indonesia</h3>
+                <p>Indonesia memiliki berbagai jenis kopi unggulan seperti <strong>Kopi Gayo</strong>, <strong>Kopi Toraja</strong>, dan <strong>Kopi Kintamani</strong>. Setiap daerah menyimpan karakter rasa unik—dari aroma floral hingga aftertaste cokelat pekat.</p>
+                <p>Tak heran, kopi Indonesia menjadi salah satu yang paling dicari di dunia.</p>
+            </div>
+            <div class="column">
+                <h3>Seni dalam Secangkir Kopi</h3>
+                <p>Selain rasa, kopi juga dikenal lewat keindahan penyajiannya. *Latte art* adalah ekspresi kreativitas barista yang mengubah secangkir kopi menjadi karya seni yang menggugah selera dan suasana hati.</p>
+                <p>Di balik setiap gelas, ada seni, sains, dan cinta terhadap proses.</p>
+            </div>
+        </section>
+
+        <section class="another-text-section">
+            <div class="another-text-placeholder">
+                <h2>Kopi dan Gaya Hidup Modern</h2>
+                <p>Kafe kini menjadi ruang sosial yang penting — tempat bekerja, bertemu, atau sekadar menenangkan diri. Budaya ngopi telah menjadi bagian dari gaya hidup masyarakat urban.</p>
+                <p>Namun, di balik itu, penting untuk menghargai proses dan petani yang menanam biji kopi dengan penuh dedikasi. Karena setiap tegukan yang kita nikmati adalah hasil kerja keras mereka.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Kopi Nusantara Hub — Cita Rasa dari Bumi Indonesia</p>
+    </footer>
+
+    <script>
+        const toggleButton = document.getElementById('mode-toggle');
+        const body = document.body;
+        const MODE_KEY = 'darkModeEnabled';
+
+        function applyMode(isDark) {
+            if (isDark) {
+                body.classList.add('dark-mode');
+                toggleButton.innerHTML = '🌙 Mode Terang';
+            } else {
+                body.classList.remove('dark-mode');
+                toggleButton.innerHTML = '☀ Mode Gelap';
+            }
+        }
+
+        const savedMode = localStorage.getItem(MODE_KEY);
+        if (savedMode === 'true') {
+            applyMode(true);
+        } else {
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (prefersDark && savedMode !== 'false') {
+                applyMode(true);
+            } else {
+                applyMode(false);
+            }
+        }
+
+        toggleButton.addEventListener('click', () => {
+            const isDark = body.classList.toggle('dark-mode');
+            localStorage.setItem(MODE_KEY, isDark);
+            applyMode(isDark);
+        });
+    </script>
+</body>
+</html>
